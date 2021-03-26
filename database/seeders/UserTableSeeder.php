@@ -13,6 +13,19 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $date = [
+            [
+                'name' => 'Автор не известен',
+                'email' => 'author_unknown@g.g',
+                'password' => bcrypt(Str::random(16)),
+            ],
+            [
+                'name' => 'Автор не известен',
+                'email' => 'author_unknown@g.g',
+                'password' => bcrypt('123143321'),
+            ]
+        ];
+
+
     }
 }
