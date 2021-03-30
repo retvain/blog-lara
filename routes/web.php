@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('rest', restTestController::class)->names('restTest');
+Route::resource('rest', restTestController::class);
+    //->names('restTest');
