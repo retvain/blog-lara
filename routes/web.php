@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\RestTestController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Blog\PostController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function () {
-    Route::resource('posts', 'PostController')->names('blog.posts');
+
+Route::group(['prefix' => 'blog'], function () {
+    Route::resource('posts', PostController::class)
+    ->names('blog.posts');
 });
 
-Route::resource('rest', restTestController::class);
-    //->names('restTest');
+Route::resource('rest', restTestController::class)
+    ->names('restTest');

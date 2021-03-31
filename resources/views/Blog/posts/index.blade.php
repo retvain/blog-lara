@@ -1,5 +1,5 @@
 <table>
-    @foreach($item as $item)
+    @foreach($items as $item)
         <tr>
             <td>{{ $item->id }}</td>
             <td>{{ $item->title }}</td>
