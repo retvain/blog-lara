@@ -18,9 +18,9 @@ sail php artisan make:seeder BlogCategoriesTableSeeder
 
 ### run seeds
 
-sail php artisan db:deed
+sail php artisan db:seed
 
-sail php artisan db:deed --class=UserTableSeeder
+sail php artisan db:seed --class=UserTableSeeder
 
 sail php artisan migrate:refresh --seed
 
