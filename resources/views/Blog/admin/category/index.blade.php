@@ -43,14 +43,18 @@
     </div>
     @if($paginator->total() > $paginator->count())
     <br>
-    <div class="row justify-content-center">
+    <div class="container">
+        <div class="row justify-content-md-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body mx-auto">
+                    @php /** @var Illuminate\Pagination\Paginator $paginator */ @endphp
                     {{ $paginator->links() }}
                 </div>
             </div>
         </div>
-        @endif
+        </div>
+    </div>
+@endif
     </div>
 @endsection

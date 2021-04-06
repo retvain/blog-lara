@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class BlogCategory extends Model
 {
     use HasFactory;
+
+    public static function findOrFail(int $id)
+    {
+    }
 }
