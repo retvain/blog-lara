@@ -78,6 +78,7 @@ class CategoryController extends BaseController
     public function update(Request $request, $id)
     {
         //dd(__METHOD__, $request->all(), $id);
+        //test
 
         $rules = [
             'title' => 'required|min:5|max:200',
