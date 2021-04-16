@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Blog\Admin;
 use App\Http\Requests\BlogCategoryUpdateRequest;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends BaseController
 {
@@ -16,7 +17,7 @@ class CategoryController extends BaseController
      */
     public function index()
     {
-        $paginator = BlogCategory::paginate(5);
+        $paginator = BlogCategory::paginate(7);
 
         return view('Blog.admin.categories.index', compact('paginator'));
     }
@@ -28,7 +29,10 @@ class CategoryController extends BaseController
      */
     public function create()
     {
-        dd(__METHOD__);
+        $item = new BlogCategory();
+        $categoryList = BlogCategory::all();
+
+        return view('Blog.admin.categories.edit', compact('item','categoryList'));
     }
 
     /**
@@ -37,9 +41,19 @@ class CategoryController extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogCategoryUpdateRequest $request)
     {
-        dd(__METHOD__);
+        //dd(__METHOD__);
+
+        /*$data = $request->input();
+        if (empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['title']);
+        }
+
+        //Create object, but not save in DB
+        $item = new BlogCategory($data);
+        dd($item);
+        $item->save();*/
     }
 
     /**
@@ -88,9 +102,10 @@ class CategoryController extends BaseController
         ];*/
 
         /*$validateData = $this->validate($request, $rules);
-        dd($validateData);
+        dd($validateData);*/
 
-        $item = BlogCategory::find($id);*/
+        $item = BlogCategory::find($id);
+        dd($item);
 
         if (empty($item)) {
             return back()
