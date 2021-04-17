@@ -44,6 +44,8 @@ for mix - sail npm install resolve-url-loader@^3.1.2 --save-dev --legacy-peer-de
 
 sail php artisan make:controller Blog/Admin/CategoryController --resource
 
-### create BlogCategoryUpdateRequest
+### create Request
 
-sail php artisan make:request BlogCategoryUpdateRequest 
+sail php artisan make:request BlogCategoryUpdateRequest
+
+sail php artisan make:request BlogCategoryCreateRequest
