@@ -1,4 +1,4 @@
-# Course reminder
+# My reminder
 
 ### Creat databse
 
