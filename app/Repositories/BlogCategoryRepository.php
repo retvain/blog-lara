@@ -41,5 +41,21 @@ class BlogCategoryRepository extends CoreRepository
         return $this->startConditions()->all();
     }
 
+    /**
+     * @param int|null $perPage
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function getAllWithPaginate($perPage = null)
+    {
+        $fields = ['id', 'title', 'parent_id'];
+
+        $result = $this
+            ->startConditions()
+            ->select($fields)
+            ->paginate($perPage);
+
+        return $result;
+    }
+
 
 }
