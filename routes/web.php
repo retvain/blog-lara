@@ -27,8 +27,8 @@ Route::group(['prefix' => 'blog'], function () {
 });
 
 //Route for test
-Route::resource('rest', restTestController::class)
-    ->names('restTest');
+/*Route::resource('rest', restTestController::class)
+    ->names('restTest');*/
 
 //Route for Authentication
 Auth::routes();
@@ -47,4 +47,9 @@ Route::group($groupData, function () {
     Route::resource('categories', App\Http\Controllers\Blog\Admin\CategoryController::class)
         -> only($methods)
         -> names('blog.admin.categories');
+
+    // BlogPosts
+    Route::resource('posts', App\Http\Controllers\Blog\Admin\PostController::class)
+        ->except(['show'])
+        ->names('blog.admin.posts');
 });

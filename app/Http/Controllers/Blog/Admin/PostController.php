@@ -17,17 +17,17 @@ class PostController extends BaseController
     {
         parent::__construct();
 
-        $this->blogPostRepository = app(BlogPostRepository::class);
+        $this->blogPostRepository = new BlogPostRepository;
     }
 
     /**
      * Manage posts of Blog
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        //return view('blog.admin.posts.index');
     }
 
     /**
