@@ -4,7 +4,7 @@
 namespace App\Repositories;
 
 use App\Models\BlogPost as Model;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
 class BlogPostRepository extends CoreRepository
 {

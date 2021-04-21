@@ -17,7 +17,7 @@ class PostController extends BaseController
     {
         parent::__construct();
 
-        $this->blogPostRepository = new BlogPostRepository;
+        $this->blogPostRepository = app(BlogPostRepository::class);
     }
 
     /**
