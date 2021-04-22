@@ -16,4 +16,27 @@ class BlogPostRepository extends CoreRepository
     {
         return Model::class;
     }
+
+    /**
+     * @return Illuminate\Pagination\LengthAwarePaginator
+     */
+    public function getAllWithPaginate()
+    {
+        $columns = [
+            'id',
+            'title',
+            'slug',
+            'is_published',
+            'published_at',
+            'user_id',
+            'category_id'
+        ];
+
+        $result = $this->startConditions()
+            ->select($columns)
+            ->orderBy('id', 'DESC')
+            ->paginate(25);
+
+        return $result;
+    }
 }
