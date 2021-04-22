@@ -23,7 +23,7 @@ class PostController extends BaseController
     /**
      * Manage posts of Blog
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return mixed
      */
     public function index()
     {
