@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Blog\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\BlogCategoryRepository;
 use App\Repositories\BlogPostRepository;
 use Illuminate\Http\Request;
 
@@ -13,11 +14,17 @@ class PostController extends BaseController
      */
     private $blogPostRepository;
 
+    /**
+     * @var BlogCategoryRepository
+     */
+    private  $blogCategoryRepository;
+
     public function __construct()
     {
         parent::__construct();
 
         $this->blogPostRepository = app(BlogPostRepository::class);
+        $this->blogCategoryRepository = app(BlogCategoryRepository::class);
     }
 
     /**
