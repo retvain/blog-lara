@@ -80,7 +80,7 @@ class PostController extends BaseController
     public function edit($id)
     {
         //dd(__METHOD__, $id);
-        $item = $this->blogPostRepository->getEdit($id);
+        $item = $this->blogPostRepository->getEdit();
         if (empty($item)) {
             abort(404);
         }
