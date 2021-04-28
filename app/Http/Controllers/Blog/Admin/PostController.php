@@ -75,11 +75,21 @@ class PostController extends BaseController
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit($id)
     {
-        dd(__METHOD__, $id);
+        //dd(__METHOD__, $id);
+        $item = $this->blogPostRepository->getEdit($id);
+        if (empty($item)) {
+            abort(404);
+        }
+
+        $categoryList
+            = $this->blogCategoryRepository->getForComboBox();
+
+        return view('Blog.admin.posts.edit',
+        compact('item', 'categoryList'));
     }
 
     /**
