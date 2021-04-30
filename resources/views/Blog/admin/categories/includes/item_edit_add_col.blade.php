@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <button type="submit" class="btn btn-primary">Сохранить</button>
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </div>
     </div>
@@ -29,15 +29,15 @@
         <div class="card">
             <div class="card-body">
             <div class="form-group">
-                <label for="title">Создано</label>
+                <label for="title">Created</label>
                 <input type="text" value="{{ $item->created_at }}" class="form-control" disabled>
             </div>
             <div class="form-group">
-                <label for="title">Изменено</label>
+                <label for="title">Changed</label>
                 <input type="text" value="{{ $item->updated_at }}" class="form-control" disabled>
             </div>
             <div class="form-group">
-                <label for="title">Удалено</label>
+                <label for="title">Deleted</label>
                 <input type="text" value="{{ $item->deleted_at }}" class="form-control" disabled>
             </div>
             </div>

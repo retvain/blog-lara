@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <nav class="navbar navbar-togleable-md navbar-light bg-faded">
-                    <a class="btn btn-primary" href="{{ route('blog.admin.categories.create') }}">Добавить</a>
+                    <a class="btn btn-primary" href="{{ route('blog.admin.categories.create') }}">Add</a>
                 </nav>
                 <div class="card">
                     <div class="card-body">
@@ -13,8 +13,8 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Категория</th>
-                                <th>Родитель</th>
+                                <th>Category</th>
+                                <th>Parent</th>
                             </tr>
                             </thead>
                             <tbody>

@@ -9,14 +9,14 @@
                 <div class="card-title"></div>
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#maindata" role="tab">Основные данные</a>
+                        <a class="nav-link active" data-toggle="tab" href="#maindata" role="tab">Main</a>
                     </li>
                 </ul>
                 <br>
                 <div class="tab-content">
                     <div class="tab-pane active" id="maindata" role="tablanel">
                         <div class="form-group">
-                            <label for="title">Заголовок</label>
+                            <label for="title">Header</label>
                             <input name="title" value="{{ $item->title }}"
                                    id="title"
                                    type="text"
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="slug">Идентификатор</label>
+                            <label for="slug">Identifier</label>
                             <input name="slug" value="{{ $item->slug }}"
                                    id="slug"
                                    type="text"
@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="parent_id">Родитель</label>
+                            <label for="parent_id">Parent</label>
                             <select name="parent_id"
                                     id="parent_id"
                                     class="form-control"
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="description">Описание</label>
+                            <label for="description">Description</label>
                             <textarea name="description"
                                       id="description"
                                       class="form-control"
