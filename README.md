@@ -53,3 +53,4 @@ sail php artisan make:request BlogCategoryCreateRequest
 ### create PostController
 
 sail php artisan make:controller Blog/Admin/PostController -r
+
