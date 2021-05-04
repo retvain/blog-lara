@@ -56,5 +56,6 @@ sail php artisan make:controller Blog/Admin/PostController -r
 
 ### create Observers
 
-sail php artisan make:observer BlogPostObserver --model=Models/BlogPost
-sail php artisan make:observer BlogCategoryObserver --model=Models/BlogCategory
+sail php artisan make:observer BlogPostObserver --model=BlogPost
+
+sail php artisan make:observer BlogCategoryObserver --model=BlogCategory

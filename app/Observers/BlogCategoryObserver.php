@@ -2,14 +2,14 @@
 
 namespace App\Observers;
 
-use App\Models\Models\BlogCategory;
+use App\Models\BlogCategory;
 
 class BlogCategoryObserver
 {
     /**
      * Handle the BlogCategory "created" event.
      *
-     * @param  \App\Models\Models\BlogCategory  $blogCategory
+     * @param  \App\Models\BlogCategory  $blogCategory
      * @return void
      */
     public function created(BlogCategory $blogCategory)
@@ -20,7 +20,7 @@ class BlogCategoryObserver
     /**
      * Handle the BlogCategory "updated" event.
      *
-     * @param  \App\Models\Models\BlogCategory  $blogCategory
+     * @param  \App\Models\BlogCategory  $blogCategory
      * @return void
      */
     public function updated(BlogCategory $blogCategory)
@@ -31,7 +31,7 @@ class BlogCategoryObserver
     /**
      * Handle the BlogCategory "deleted" event.
      *
-     * @param  \App\Models\Models\BlogCategory  $blogCategory
+     * @param  \App\Models\BlogCategory  $blogCategory
      * @return void
      */
     public function deleted(BlogCategory $blogCategory)
@@ -42,7 +42,7 @@ class BlogCategoryObserver
     /**
      * Handle the BlogCategory "restored" event.
      *
-     * @param  \App\Models\Models\BlogCategory  $blogCategory
+     * @param  \App\Models\BlogCategory  $blogCategory
      * @return void
      */
     public function restored(BlogCategory $blogCategory)
@@ -53,7 +53,7 @@ class BlogCategoryObserver
     /**
      * Handle the BlogCategory "force deleted" event.
      *
-     * @param  \App\Models\Models\BlogCategory  $blogCategory
+     * @param  \App\Models\BlogCategory  $blogCategory
      * @return void
      */
     public function forceDeleted(BlogCategory $blogCategory)
