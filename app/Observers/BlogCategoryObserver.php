@@ -18,6 +18,27 @@ class BlogCategoryObserver
     }
 
     /**
+     * @param BlogCategory $blogCategory
+     */
+    public function creating(BlogCategory $blogCategory)
+    {
+        $this->setSlug($blogCategory);
+    }
+
+    /**
+     *
+     * if slug is empty, create him
+     *
+     * @param BlogCategory $blogCategory
+     */
+    protected function setSlug(BlogCategory $blogCategory)
+    {
+        if (empty($blogCategory->slug)) {
+            $blogCategory->slug = \Str::slug($blogCategory->title);
+        }
+    }
+
+    /**
      * Handle the BlogCategory "updated" event.
      *
      * @param  \App\Models\BlogCategory  $blogCategory
@@ -26,6 +47,11 @@ class BlogCategoryObserver
     public function updated(BlogCategory $blogCategory)
     {
         //
+    }
+
+    public function updating(BlogCategory $blogCategory)
+    {
+        $this->setSlug($blogCategory);
     }
 
     /**
@@ -60,4 +86,5 @@ class BlogCategoryObserver
     {
         //
     }
+
 }
