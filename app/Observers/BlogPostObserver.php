@@ -82,7 +82,7 @@ class BlogPostObserver
 
     public function setUser(BlogPost $blogPost)
     {
-        $blogPost->iser_id = auth()->id() ?? BlogPost::UNKNOWN_USER;
+        $blogPost->user_id = auth()->id() ?? BlogPost::UNKNOWN_USER;
     }
 
     /**

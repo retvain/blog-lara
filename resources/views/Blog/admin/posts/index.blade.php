@@ -10,8 +10,8 @@
         @endif--}}
         <div class="row justify-content-center">
             <nav class="col-md-12">
-                <nav class="navbar navbar-toggleable-md navbar-light bg-faded"
-                <a class="btn btn-primary" href="{{ route('blog.admin.posts.create') }}">Написать</a>
+                <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                <a href="{{ route('blog.admin.posts.create') }}" class="btn btn-primary">Написать</a>
             </nav>
             <div class="card">
                 <div class="card-body">
