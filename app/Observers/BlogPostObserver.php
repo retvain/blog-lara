@@ -14,9 +14,15 @@ class BlogPostObserver
      */
     public function creating(BlogPost $blogPost)
     {
-        /*$this->setPublishedAt($blogPost);
+        $this->setPublishedAt($blogPost);
 
-        $this->setSlug($blogPost);*/
+        $this->setSlug($blogPost);
+
+        $this->setHTML($blogPost);
+
+        $this->setUser($blogPost);
+
+
     }
 
     /**
@@ -53,11 +59,30 @@ class BlogPostObserver
         }
     }
 
+    /**
+     * @param BlogPost $blogPost
+     */
     protected function setSlug(BlogPost $blogPost)
     {
         if (empty($blogPost->slug)) {
             $blogPost->slug = \Str::slug($blogPost->title);
         }
+    }
+
+    /**
+     * @param BlogPost $blogPost
+     */
+    protected function setHTML(BlogPost $blogPost)
+    {
+        if ($blogPost->isDirty('content_raw')) {
+            // TODO: make generating markdown - html
+            $blogPost->content_html = $blogPost->content_raw;
+        }
+    }
+
+    public function setUser(BlogPost $blogPost)
+    {
+        $blogPost->iser_id = auth()->id() ?? BlogPost::UNKNOWN_USER;
     }
 
     /**

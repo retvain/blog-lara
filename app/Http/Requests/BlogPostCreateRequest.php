@@ -34,7 +34,7 @@ class BlogPostCreateRequest extends \Illuminate\Foundation\Http\FormRequest
     {
         return [
             'title.required' => 'Insert header of post',
-            'content_raw.min' => 'Minimum length post [:min] symbols',
+            'content_raw.min' => 'Minimum length post :min symbols',
         ];
     }
 
