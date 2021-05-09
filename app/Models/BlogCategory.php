@@ -62,27 +62,27 @@ class BlogCategory extends Model
         return $title;
     }
 
-    /**
-     *
-     * Accessor for example
-     *
-     * @return string
-     */
-    public function getTitleAttribute($valueFromObject)
-    {
-        return mb_strtoupper($valueFromObject);
-    }
-
-    /**
-     *
-     * Mutator for example
-     *
-     * @param string $incomingValue
-     */
-    public function setTitleAttribute($incomingValue)
-    {
-        $this->attributes['title'] = mb_strtolower($incomingValue);
-    }
+//    /**
+//     *
+//     * Accessor for example
+//     *
+//     * @return string
+//     */
+//    public function getTitleAttribute($valueFromObject)
+//    {
+//        return mb_strtoupper($valueFromObject);
+//    }
+//
+//    /**
+//     *
+//     * Mutator for example
+//     *
+//     * @param string $incomingValue
+//     */
+//    public function setTitleAttribute($incomingValue)
+//    {
+//        $this->attributes['title'] = mb_strtolower($incomingValue);
+//    }
 
     public function isRoot()
     {

@@ -110,18 +110,20 @@ class CategoryController extends BaseController
     {
         $item = $categoryRepository->getEdit($id);
 
-        $v['title_before'] = $item->title;
+//        Test for accessors and mutators
 
-        $item->title = 'ASDasdasdDS asdasd 1234';
-
-        $v['title_after'] = $item->title;
-        $v['getAttribute'] = $item->getAttribute('title');
-        $v['getAttributeValue'] = $item->getAttributeValue('title');
-        $v['getMutatedAttributes'] = $item->getMutatedAttributes();
-        $v['hasGetMutator for title'] = $item->hasGetMutator('title');
-        $v['toArray'] = $item->toArray();
-
-        dd($v, $item);
+//        $v['title_before'] = $item->title;
+//
+//        $item->title = 'ASDasdasdDS asdasd 1234';
+//
+//        $v['title_after'] = $item->title;
+//        $v['getAttribute'] = $item->getAttribute('title');
+//        $v['getAttributeValue'] = $item->getAttributeValue('title');
+//        $v['getMutatedAttributes'] = $item->getMutatedAttributes();
+//        $v['hasGetMutator for title'] = $item->hasGetMutator('title');
+//        $v['toArray'] = $item->toArray();
+//
+//        dd($v, $item);
 
         if (empty($item)) {
             abort(404);

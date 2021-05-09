@@ -10,6 +10,9 @@
         @endif--}}
         <div class="row justify-content-center">
             <nav class="col-md-12">
+
+                @include('Blog.admin.posts.includes.result_messages')
+
                 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
                 <a href="{{ route('blog.admin.posts.create') }}" class="btn btn-primary">Написать</a>
             </nav>
