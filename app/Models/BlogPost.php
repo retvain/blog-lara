@@ -32,7 +32,7 @@ class BlogPost extends Model
      */
     public function category()
     {
-        //article belong to category
+        //post belong to category
         return $this->belongsTo(BlogCategory::class);
     }
 
@@ -41,7 +41,7 @@ class BlogPost extends Model
      */
     public function user()
     {
-        //article belong user
+        //post belong user
         return $this->belongsTo(User::class);
     }
 }
