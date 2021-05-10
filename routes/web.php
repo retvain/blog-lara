@@ -23,7 +23,7 @@ Route::get('/', function () {
 // Route for blog/posts
 Route::group(['prefix' => 'blog'], function () {
     Route::resource('posts', PostController::class)
-    ->names('blog.posts');
+        ->names('blog.posts');
 });
 
 //Route for test
@@ -36,8 +36,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
     ->name('home');
 
-
-
+Route::group(['prefix' => 'digging_dipper',],
+    function () {
+        Route::get('collections', [App\Http\Controllers\DiggingDeeperController::class, 'collections'])
+            ->name('digging_deeper.collections');
+    });
 
 //Route for Admin Blog.
 $groupData = [
@@ -50,13 +53,14 @@ Route::group($groupData, function () {
     //Blog category
     $methods = ['index', 'edit', 'update', 'create', 'store',];
     Route::resource('categories', App\Http\Controllers\Blog\Admin\CategoryController::class)
-        -> only($methods)
-        -> names('blog.admin.categories');
+        ->only($methods)
+        ->names('blog.admin.categories');
 
-    // BlogPosts
+    // BlogPosts for restore post
     Route::get('posts/{post}/restore', [\App\Http\Controllers\Blog\Admin\PostController::class, 'restore'])
         ->name('blog.admin.posts.restore');
 
+    // BlogPosts all resource methods
     Route::resource('posts', App\Http\Controllers\Blog\Admin\PostController::class)
         ->except(['show'])
         ->names('blog.admin.posts');

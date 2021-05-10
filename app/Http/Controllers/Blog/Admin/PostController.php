@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogPostCreateRequest;
 use App\Http\Requests\BlogPostUpdateRequest;
 use App\Models\BlogPost;
+use App\Models\User;
 use App\Repositories\BlogCategoryRepository;
 use App\Repositories\BlogPostRepository;
 use Carbon\Carbon;
@@ -38,6 +39,13 @@ class PostController extends BaseController
      */
     public function index()
     {
+
+//        $user = BlogPost::find(1)->user->name;
+//        dd($user);
+
+        $posts = User::find(1)->posts;
+        dd($posts);
+
         $paginator = $this->blogPostRepository->getAllWithPaginate();
 
         return view('Blog.admin.posts.index', compact('paginator'));
@@ -170,7 +178,7 @@ class PostController extends BaseController
         if ($result) {
             return redirect()
                 ->route('blog.admin.posts.index')
-                ->with(['success' => 'Post ' . $id . ' has ben deleted! <a href="' . route('blog.admin.posts.restore', $id) . '">Восстановить</a>']);
+                ->with(['success' => 'Post ' . $id . ' has ben deleted! <a href="' . route('blog.admin.posts.restore', $id) . '">Restore</a>']);
         } else {
             return back()->withErrors(['msg' => 'Error deleting']);
         }
