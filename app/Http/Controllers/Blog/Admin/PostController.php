@@ -162,7 +162,7 @@ class PostController extends BaseController
     public function destroy($id)
     {
         //soft-delete, NOT delete from DB
-        $result = BlogPost::destroy(($id));
+        $result = BlogPost::destroy($id);
 
         //full-delete, DELETE from DB
         //$result = BlogPost::find($id)->forceDelete();
@@ -170,9 +170,23 @@ class PostController extends BaseController
         if ($result) {
             return redirect()
                 ->route('blog.admin.posts.index')
-                ->with(['success' => "Post id[$id] deleted"]);
+                ->with(['success' => 'Post ' . $id . ' has ben deleted! <a href="' . route('blog.admin.posts.restore', $id) . '">Восстановить</a>']);
         } else {
             return back()->withErrors(['msg' => 'Error deleting']);
+        }
+    }
+
+    public function restore($id)
+    {
+        $result = BlogPost::withTrashed()
+            ->where('id', $id)
+            ->restore();
+        if ($result) {
+            return redirect()
+                ->route('blog.admin.posts.edit', $id)
+                ->with(['success' => "Post id[$id] restored"]);
+        } else {
+            return back()->withErrors(['msg' => 'Error. Can not restore' ]);
         }
     }
 }

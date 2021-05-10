@@ -33,13 +33,18 @@ Route::group(['prefix' => 'blog'], function () {
 //Route for Authentication
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+    ->name('home');
+
+
+
 
 //Route for Admin Blog.
 $groupData = [
 
     'prefix' => 'admin/blog',
 ];
+
 Route::group($groupData, function () {
 
     //Blog category
@@ -49,6 +54,9 @@ Route::group($groupData, function () {
         -> names('blog.admin.categories');
 
     // BlogPosts
+    Route::get('posts/{post}/restore', [\App\Http\Controllers\Blog\Admin\PostController::class, 'restore'])
+        ->name('blog.admin.posts.restore');
+
     Route::resource('posts', App\Http\Controllers\Blog\Admin\PostController::class)
         ->except(['show'])
         ->names('blog.admin.posts');
