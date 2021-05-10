@@ -172,9 +172,6 @@ class PostController extends BaseController
         //soft-delete, NOT delete from DB
         $result = BlogPost::destroy($id);
 
-        //full-delete, DELETE from DB
-        //$result = BlogPost::find($id)->forceDelete();
-
         if ($result) {
             return redirect()
                 ->route('blog.admin.posts.index')
