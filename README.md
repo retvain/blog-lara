@@ -59,3 +59,17 @@ sail php artisan make:controller Blog/Admin/PostController -r
 sail php artisan make:observer BlogPostObserver --model=BlogPost
 
 sail php artisan make:observer BlogCategoryObserver --model=BlogCategory
+
+### Create migration file for the table
+
+sail php artisan queue:table
+
+### Create migration file failed_jobs
+
+sail php artisan queue:failed-table
+
+### Create first test Jobs
+
+sail php artisan make:job BlogPostAfterCreateJob
+
+sail php artisan make:job BlogPostAfterDeleteJob
