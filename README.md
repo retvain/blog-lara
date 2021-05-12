@@ -73,3 +73,26 @@ sail php artisan queue:failed-table
 sail php artisan make:job BlogPostAfterCreateJob
 
 sail php artisan make:job BlogPostAfterDeleteJob
+
+sail php artisan make:job ProcessVideoJob
+
+sail artisan queue:work
+//run task processing chosen queue as demon
+
+sail artisan queue:work --queue=queueName1,queueName2
+//first exec name1, after Name2
+
+sail artisan queue:listen
+//run job processing chosen queue
+
+sail artisan queue:restart
+//soft reset demon queue:work, after he completes the job
+
+sail artisan queue:retry all
+//returns all failed job to the queue
+
+sail artisan queue:retry 5
+//View failed job id=5 in queue to run
+
+sail artisan queue:failed
+//see failed tasks

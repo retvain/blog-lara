@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Blog\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogPostCreateRequest;
 use App\Http\Requests\BlogPostUpdateRequest;
+use App\Jobs\BlogPostAfterCreateJob;
 use App\Models\BlogPost;
 use App\Models\User;
 use App\Repositories\BlogCategoryRepository;
@@ -39,13 +40,6 @@ class PostController extends BaseController
      */
     public function index()
     {
-
-//        $user = BlogPost::find(1)->user->name;
-//        dd($user);
-
-        $posts = User::find(1)->posts;
-        dd($posts);
-
         $paginator = $this->blogPostRepository->getAllWithPaginate();
 
         return view('Blog.admin.posts.index', compact('paginator'));
@@ -78,6 +72,9 @@ class PostController extends BaseController
         $item = (new BlogPost())->create($data);
 
         if ($item) {
+            $job = new BlogPostAfterCreateJob($item);
+            $this->dispatch($job);
+
             return redirect()->route('blog.admin.posts.edit', [$item->id])
                 ->with(['success' => 'Save successful']);
         } else {
@@ -173,6 +170,8 @@ class PostController extends BaseController
         $result = BlogPost::destroy($id);
 
         if ($result) {
+
+            BlogPostAfterCreateJob::dispatch($id);
             return redirect()
                 ->route('blog.admin.posts.index')
                 ->with(['success' => 'Post ' . $id . ' has ben deleted! <a href="' . route('blog.admin.posts.restore', $id) . '">Restore</a>']);
