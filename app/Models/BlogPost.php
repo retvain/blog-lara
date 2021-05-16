@@ -44,4 +44,9 @@ class BlogPost extends Model
         //post belong user
         return $this->belongsTo(User::class);
     }
+
+    public function scopeUserId($query, $id)
+    {
+        return $query->where('user_id', $id);
+    }
 }

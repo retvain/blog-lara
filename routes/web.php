@@ -36,6 +36,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
     ->name('home');
 
+//Route for collections
 Route::group(['prefix' => 'digging_dipper',],
     function () {
         Route::get('collections', [App\Http\Controllers\DiggingDeeperController::class, 'collections'])
@@ -65,3 +66,8 @@ Route::group($groupData, function () {
         ->except(['show'])
         ->names('blog.admin.posts');
 });
+
+//Route for test scope
+
+Route::get('/test_scope', [\App\Http\Controllers\TestScopeController::class, 'index'])
+    ->name('test.scope');
