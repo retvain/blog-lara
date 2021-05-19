@@ -97,5 +97,5 @@ sail artisan queue:retry 5
 sail artisan queue:failed
 //see failed tasks
 
+### create the symbolic link
 sail artisan storage:link
-//create the symbolic link
