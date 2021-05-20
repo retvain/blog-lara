@@ -43,14 +43,13 @@
                             <textarea name="content_raw"
                                       id="content_raw"
                                       class="form-control"
-                                      rows="20">{{ old('content_raw', $item->content_raw) }}</textarea>
+                                      rows="20">{{ old('content_html', $item->content_html) }}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Image</label>
+                            <input class="form-control" type="file" name="admin.blog.post.image">
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Image</label>
-                        <input class="form-control" type="file" name="admin.blog.post.image">
-                    </div>
-
                     <div class="tab-pane" id="adddata" role="tabpanel">
                         <div class="form-group">
                             <label for="category_id">Category</label>

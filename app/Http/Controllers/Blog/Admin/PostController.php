@@ -12,6 +12,7 @@ use App\Repositories\BlogCategoryRepository;
 use App\Repositories\BlogPostRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends BaseController
 {
@@ -124,7 +125,9 @@ class PostController extends BaseController
      */
     public function update(BlogPostUpdateRequest $request, $id)
     {
-        dd(__METHOD__, $request->all(), $id);
+        // save file
+        //$request->file('admin_blog_post_image')->store('public/images');
+        //dd(__METHOD__, $request->admin_blog_post_image, $id);
 
         $item = $this->blogPostRepository->getEdit($id);
 

@@ -1,7 +1,4 @@
 @extends('layouts.app')
-@php
-printf('abc' . "<a href='#'>de</a>");
-@endphp
 @section('content')
     <div class="container">
         {{--    @if(session(('success')))

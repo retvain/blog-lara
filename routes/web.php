@@ -22,13 +22,17 @@ Route::get('/', function () {
 
 // Route for blog/posts
 Route::group(['prefix' => 'blog'], function () {
-    Route::resource('posts', PostController::class)
-        ->names('blog.posts');
+    Route::get('posts', [\App\Http\Controllers\Blog\MainPageController::class, 'index'])
+        ->name('blog.posts');
 });
 
-//Route for test
-/*Route::resource('rest', restTestController::class)
-    ->names('restTest');*/
+// Route for blog/post
+Route::group(['prefix' => 'blog'], function () {
+    $methods = ['index', 'edit', 'update', 'create', 'store', 'show',];
+    Route::resource('post', PostController::class)
+        ->only($methods)
+        ->names('blog.post');
+});
 
 //Route for Authentication
 Auth::routes();
@@ -61,7 +65,7 @@ Route::group($groupData, function () {
     Route::get('posts/{post}/restore', [\App\Http\Controllers\Blog\Admin\PostController::class, 'restore'])
         ->name('blog.admin.posts.restore');
 
-    // BlogPosts all resource methods
+    // BlogPosts for Admin all resource methods
     Route::resource('posts', App\Http\Controllers\Blog\Admin\PostController::class)
         ->except(['show'])
         ->names('blog.admin.posts');
