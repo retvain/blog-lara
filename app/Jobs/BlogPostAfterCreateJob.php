@@ -22,7 +22,7 @@ class BlogPostAfterCreateJob implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @return void
+     * @param BlogPost $blogPost
      */
     public function __construct(BlogPost $blogPost)
     {

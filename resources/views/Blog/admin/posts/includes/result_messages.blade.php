@@ -22,7 +22,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">x</span>
                 </button>
-                {{ session()->get('success') }}
+                {!! session()->get('success') !!}
             </div>
         </div>
     </div>

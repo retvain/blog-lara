@@ -174,10 +174,10 @@ class PostController extends BaseController
 
         if ($result) {
 
-            BlogPostAfterCreateJob::dispatch($id);
+            //BlogPostAfterCreateJob::dispatch($id);
             return redirect()
                 ->route('blog.admin.posts.index')
-                ->with(['success' => 'Post ' . $id . ' has ben deleted! <a href="' . route('blog.admin.posts.restore', $id) . '">Restore</a>']);
+                ->with(['success' => 'Post has been deleted. <a href="'.route('blog.admin.posts.restore', $id). '">Restore?</a>']);
         } else {
             return back()->withErrors(['msg' => 'Error deleting']);
         }
